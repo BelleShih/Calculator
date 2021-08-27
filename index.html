@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <div class="container">
+    <div class="row">
+      <div class="col">
+        <p class="input">0123</p>
+      </div>
+      <!-- 按扭區 -->
+      <table class="col">
+        <tr class="items">
+          <td colspan="2" class="top-icon">AC</td>
+          <td class="top-icon">%</td>
+          <td class="operation-icon">÷</td>
+        </tr>
+        <tr class="items">
+          <td>7</td>
+          <td>8</td>
+          <td>9</td>
+          <td class="operation-icon">x</td>
+        </tr>
+        <tr class="items">
+          <td>4</td>
+          <td>5</td>
+          <td>6</td>
+          <td class="operation-icon">-</td>
+        </tr>
+        <tr class="items">
+          <td>1</td>
+          <td>2</td>
+          <td>3</td>
+          <td class="operation-icon">+</td>
+        </tr>
+        <tr class="items">
+          <td colspan="2">0</td>
+          <td>.</td>
+          <td class="operation-icon">=</td>
+        </tr>
+      </table>
+    </div>
+  </div>
+</body>
+<style>
+*{
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  font-family: "Microsoft JhengHei", sans-serif;
+  box-sizing: border-box;
+  transition: 0.5s;
+} 
+.container {
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: rgb(236, 236, 236);
+}
+.row {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  background: rgb(180, 180, 180);
+  border-radius: 10px;
+  padding: 10px;
+  width: 400px;
+  height:500px
+}
+.col {
+  width: 100%;
+}
+.input {
+  width: 400px;
+  height: 110px;
+  border: none;
+  /* background: floralwhite; */
+  color: white;
+  font-size: 3.5rem;
+  line-height: 7rem;
+  border-radius: 10px;
+  margin: 0px
+}
+table {
+  border: none
+}
+tr {
+  height: 72px;
+  text-align: center;
+}
+td {
+  width: calc(100% / 4);
+  border-radius: 3px;
+  font-size: 2rem;
+  color: rgb(151, 150, 148);
+  background: rgb(250, 236, 218);
+  cursor: pointer;
+}
+td:hover {
+  background: rgb(241, 225, 206);
+}
+.top-icon {
+  background: rgb(142, 151, 165);
+  color: white;
+}
+.top-icon:hover {
+  background: rgb(127, 136, 151);
+}
+.operation-icon {
+  background: rgb(108, 117, 126);
+  color: white;
+}
+.operation-icon:hover {
+  background: rgb(87, 95, 104);
+}
+
+</style>
+</html>
