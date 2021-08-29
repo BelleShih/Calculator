@@ -37,7 +37,7 @@
 .col {
   width: 100%;
 }
-.input {
+#input {
   width: 100%;
   height: 110px;
   border: none;
@@ -87,37 +87,37 @@ td:hover {
   <div class="container">
     <div class="row">
       <div class="col">
-        <p class="input">0123</p>
+        <p id="input">0</p>
       </div>
       <!-- 按扭區 -->
       <table class="col">
         <tr class="items">
-          <td colspan="2" class="top-icon">AC</td>
+          <td id="AC" colspan="2" class="top-icon">AC</td>
           <td class="top-icon">%</td>
-          <td class="operation-icon">÷</td>
+          <td class="symbol operation-icon">÷</td>
         </tr>
         <tr class="items">
           <td class="number">8</td>
           <td class="number">7</td>
           <td class="number">9</td>
-          <td class="operation-icon">x</td>
+          <td class="symbol operation-icon">×</td>
         </tr>
         <tr class="items">
           <td class="number">4</td>
           <td class="number">5</td>
           <td class="number">6</td>
-          <td class="operation-icon">-</td>
+          <td class="symbol operation-icon">-</td>
         </tr>
         <tr class="items">
           <td class="number">1</td>
           <td class="number">2</td>
           <td class="number">3</td>
-          <td class="operation-icon">+</td>
+          <td class="symbol operation-icon">+</td>
         </tr>
         <tr class="items">
           <td class="number" colspan="2">0</td>
-          <td>.</td>
-          <td class="operation-icon">=</td>
+          <td class="symbol">.</td>
+          <td id="equal" class="operation-icon">=</td>
         </tr>
       </table>
     </div>
@@ -125,11 +125,40 @@ td:hover {
 </body>
 <script>
   let numbers = document.querySelectorAll('.number');
-  console.log(numbers);
+  let num = '';
+  let input = document.getElementById('input');
+  let AC = document.getElementById('AC');
+  let symbols = document.querySelectorAll('.symbol');
+  let equal = document.getElementById('equal');
+
   for(let i = 0; i < numbers.length; i++) {
     numbers[i].addEventListener('click', function() {
-      console.log('click!', i);
+      if(input.innerText === '0') {
+        input.innerText = numbers[i].innerText;
+        num = numbers[i].innerText;
+      } else {
+        input.innerText =  input.innerText + numbers[i].innerText;
+        num = num + numbers[i].innerText;
+      }
     });
   };
+
+  AC.addEventListener('click', function() {
+    input.innerText = '0';
+    num = '0';
+  });
+
+  for(let i = 0; i < symbols.length; i++) {
+    symbols[i].addEventListener('click', function() {
+        input.innerText = '';
+        num = (num + symbols[i].innerText);
+    });
+  };
+  
+  equal.addEventListener('click', function() {
+    let newInput = num.replace(/×/g, '*').replace(/÷/g, '/');
+    input.innerText = eval(newInput);
+    num = '0';
+  });
 </script>
 </html>
