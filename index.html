@@ -92,7 +92,8 @@ td:hover {
       <!-- 按扭區 -->
       <table class="col">
         <tr class="items">
-          <td onclick="ac()" colspan="2" class="top-icon">C</td>
+          <td onclick="ac()" class="top-icon">C</td>
+          <td onclick="del()" class="top-icon">←</td>
           <td class="top-icon">%</td>
           <td onclick="symbol('÷')" class="operation-icon">÷</td>
         </tr>
@@ -115,8 +116,9 @@ td:hover {
           <td onclick="symbol('+')" class="operation-icon">+</td>
         </tr>
         <tr class="items">
-          <td onclick="number('0')" colspan="2">0</td>
-          <td onclick="number('.')">.</td>
+          <td onclick="number('0')">0</td>
+          <td onclick="doubleZero('00')">00</td>
+          <td onclick="Point('.')">.</td>
           <td onclick="equal()" class="operation-icon">=</td>
         </tr>
       </table>
@@ -128,86 +130,75 @@ td:hover {
   let num = '';
   let total = '';
   let input = document.getElementById('input');
+  let account = false;
+  let disable = false;
 
   let number = (item) => {
-    if(total.length !== 0) {
+    if(total.length !== 0 && account) {
       input.innerText = '';
       total = '';
+      num = '';
+    } else {
+      input.innerText = input.innerText + item;
+      num = num + item;
+      console.log(145, num);
+    };
+  };
+
+  let Point = (item) => {
+    if(input.innerText.includes('.')) {
+      input.innerText = input.innerText
+    } else {
+      input.innerText = input.innerText + item;
+      num = num + item;
     }
-    input.innerText = input.innerText + item;
-    num = num + item;
-    console.log(139, num);
+  };
+
+  let doubleZero = (item) => {
+    if(input.innerText.length === 0) {
+      input.innerText = '';
+    } else {
+      input.innerText = input.innerText + item;
+      num = num + item;
+    }
   };
 
   let symbol = (item) => {
     if(total.length !== 0) {
       num = total + item;
-      console.log(146, num);
+      input.innerText = '';
+      account = false;
     } else {
       input.innerText = '';
       num = num + item;
-      console.log(150, num);
+      account = false;
     }
   };
 
   let ac = () => {
     input.innerText = '';
     num = '';
+    total = '';
+  };
+
+  let del = () => {
+    input.innerText = input.innerText.slice(0, -1);
+    num = num.slice(0, -1);
   };
 
   let equal = () => {
+    account = true;
     if (num.length === 0) {
       input.innerText = '';
     } else {
       let newInput = num.replace(/×/g, '*').replace(/÷/g, '/');
-      console.log(newInput);
       total = eval(newInput);
-      console.log((total.split(',')).length);
-      if(total.length > 12) {
-        input.innerText = total.substr(0, 12);
+      if(total.toString().includes('.')) {
+        input.innerText = total.toFixed(3);
       } else {
         input.innerText = total;
       }
     }
   };
-
-  // for(let i = 0; i < numbers.length; i++) {
-  //   numbers[i].addEventListener('click', function() {
-  //     if(total.length !== 0) {
-  //       input.innerText = '';
-  //       total = '';
-  //     }
-  //     if(input.innerText.length === 0) {
-  //       input.innerText = numbers[i].innerText;
-  //       num = numbers[i].innerText;
-  //       console.log(144, num);
-  //     } else {
-  //       input.innerText =  input.innerText + numbers[i].innerText;
-  //       num = num + numbers[i].innerText;
-  //       console.log(148, num);
-  //     }
-  //   });
-  // };
-
-
-  // for(let i = 0; i < symbols.length; i++) {
-  //   symbols[i].addEventListener('click', function() {
-  //     if(total.length !== 0) {
-  //       num = (total + symbols[i].innerText);
-  //       console.log(162, num);
-  //     } else {
-  //       input.innerText = '';
-  //       num = (num + symbols[i].innerText);
-  //       console.log(166, num);
-  //     }
-  //   });
-  // };
-  
-  // equal.addEventListener('click', function() {
-  //   let newInput = num.replace(/×/g, '*').replace(/÷/g, '/');
-  //   input.innerText = eval(newInput);
-  //   total = input.innerText
-  //   num = '';
-  // });
 </script>
 </html>
