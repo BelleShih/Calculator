@@ -94,7 +94,7 @@ td:hover {
         <tr class="items">
           <td onclick="ac()" class="top-icon">C</td>
           <td onclick="del()" class="top-icon">←</td>
-          <td class="top-icon">%</td>
+          <td onclick="percentage('%')" class="top-icon">%</td>
           <td onclick="symbol('÷')" class="operation-icon">÷</td>
         </tr>
         <tr class="items">
@@ -141,7 +141,6 @@ td:hover {
     } else {
       input.innerText = input.innerText + item;
       num = num + item;
-      console.log(145, num);
     };
   };
 
@@ -157,9 +156,11 @@ td:hover {
   let doubleZero = (item) => {
     if(input.innerText.length === 0) {
       input.innerText = '';
+      console.log(159, num);
     } else {
       input.innerText = input.innerText + item;
       num = num + item;
+      console.log(162, num);
     }
   };
 
@@ -173,6 +174,12 @@ td:hover {
       num = num + item;
       account = false;
     }
+  };
+
+  let percentage = (item) => {
+    input.innerText = input.innerText + item;
+    num = num + ('/100');
+    console.log(182, num);
   };
 
   let ac = () => {
@@ -193,6 +200,7 @@ td:hover {
     } else {
       let newInput = num.replace(/×/g, '*').replace(/÷/g, '/');
       total = eval(newInput);
+      console.log(200, newInput);
       if(total.toString().includes('.')) {
         input.innerText = total.toFixed(3);
       } else {
