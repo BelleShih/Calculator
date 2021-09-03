@@ -4,17 +4,26 @@ let total = '';
 let input = document.getElementById('input');
 let account = false;
 let disable = false;
+let inputText = '';
 
 let number = (item) => {
   if(input.innerText.length > 9) {
     item = '';
   }
   if(total.length !== 0 && account) {
-    input.innerText = '';
+    input.innerText = item;
+    inputText = item;
     total = '';
-    num = '';
+    num = item;
+    account = false;
   } else {
-    input.innerText = input.innerText + item;
+    if(input.innerText.indexOf('0') === 0) {
+      if(item === '0'){
+        item = '';
+      };
+    }
+    inputText = inputText + item;
+    input.innerText = inputText;
     num = num + item;
   };
 };
@@ -25,6 +34,7 @@ let Point = (item) => {
   } else {
     input.innerText = input.innerText + item;
     num = num + item;
+    inputText = inputText + item;
   }
 };
 
@@ -34,18 +44,21 @@ let doubleZero = (item) => {
   } else {
     input.innerText = input.innerText + item;
     num = num + item;
+    inputText = inputText + item;
   }
 };
 
 let symbol = (item) => {
   if(total.length !== 0) {
     num = total + item;
-    input.innerText = '';
+    input.innerText = inputText;
     account = false;
+    inputText = '';
   } else {
-    input.innerText = '';
+    input.innerText = inputText;
     num = num + item;
     account = false;
+    inputText = '';
   }
 };
 
@@ -58,6 +71,7 @@ let ac = () => {
   input.innerText = '';
   num = '';
   total = '';
+  inputText = '';
 };
 
 let del = () => {
@@ -67,6 +81,7 @@ let del = () => {
 
 let equal = () => {
   account = true;
+  inputText = '';
   if (num.length === 0) {
     input.innerText = '';
   } else {
