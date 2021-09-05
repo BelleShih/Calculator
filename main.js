@@ -76,6 +76,7 @@ let ac = () => {
 
 let del = () => {
   input.innerText = input.innerText.slice(0, -1);
+  inputText = inputText.slice(0, -1);
   num = num.slice(0, -1);
 };
 
@@ -96,3 +97,48 @@ let equal = () => {
     }
   }
 };
+
+// TODO
+window.addEventListener('keydown', function(e){
+  let key = document.querySelector(`td[data-key='${e.keyCode}']`);
+
+  if(e.keyCode === 48) {
+    number(key.innerHTML);
+  } else if(e.keyCode === 49) {
+    number(key.innerHTML);
+  } else if(e.keyCode === 50) {
+    number(key.innerHTML);
+  } else if(e.keyCode === 51) {
+    number(key.innerHTML);
+  } else if(e.keyCode === 52) {
+    number(key.innerHTML);
+  } else if(e.keyCode === 53) {
+    number(key.innerHTML);
+  } else if(e.keyCode === 54) {
+    number(key.innerHTML);
+  } else if(e.keyCode === 55) {
+    number(key.innerHTML);
+  } else if(e.keyCode === 56) {
+    number(key.innerHTML);
+  } else if(e.keyCode === 57) {
+    number(key.innerHTML);
+  } else if(e.keyCode === 191) {
+    symbol(key.innerHTML);
+  } else if(e.keyCode === 106) {
+    symbol(key.innerHTML);
+  } else if(e.keyCode === 189) {
+    symbol(key.innerHTML);
+  } else if(e.keyCode === 187) {
+    symbol(key.innerHTML);
+  } else if(e.keyCode === 88) {
+    symbol(key.innerHTML);
+  } else if(e.keyCode === 8) {
+    del();
+  } else if(e.keyCode === 190) {
+    Point(key.innerHTML);
+  } else if(e.keyCode === 13) {
+    equal();
+  } else if(e.keyCode === 27) {
+    ac();
+  }
+});
