@@ -142,3 +142,12 @@ window.addEventListener('keydown', function(e){
     ac();
   }
 });
+
+let playNumberAudio = () => {
+  let audio = document.getElementById('audio1');
+  audio.cloneNode().play();
+};
+let playOtherAudio = () => {
+  let audio = document.getElementById('audio2');
+  audio.cloneNode().play();
+};

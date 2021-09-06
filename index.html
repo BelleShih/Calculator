@@ -19,37 +19,39 @@
       <!-- 按扭區 -->
       <table class="col">
         <tr class="items">
-          <td data-key="27" onclick="ac()" class="top-icon">C</td>
-          <td data-key="8" onclick="del()" class="top-icon">←</td>
-          <td onclick="percentage('%')" class="top-icon">%</td>
-          <td data-key="191" onclick="symbol('÷')" class="operation-icon">÷</td>
+          <td data-key="27" onclick="ac(), playOtherAudio()" class="top-icon">C</td>
+          <td data-key="8" onclick="del(), playOtherAudio()" class="top-icon">←</td>
+          <td onclick="percentage('%'), playOtherAudio()" class="top-icon">%</td>
+          <td data-key="191" onclick="symbol('÷'), playOtherAudio()" class="operation-icon">÷</td>
         </tr>
         <tr class="items">
-          <td data-key="56" onclick="number('8')">8</td>
-          <td data-key="55" onclick="number('7')">7</td>
-          <td data-key="57" onclick="number('9')">9</td>
-          <td data-key="88" onclick="symbol('×')" class="operation-icon">×</td>
+          <td data-key="56" onclick="number('8'), playNumberAudio()">8</td>
+          <td data-key="55" onclick="number('7'), playNumberAudio()">7</td>
+          <td data-key="57" onclick="number('9'), playNumberAudio()">9</td>
+          <td data-key="88" onclick="symbol('×'), playOtherAudio()" class="operation-icon">×</td>
         </tr>
         <tr class="items">
-          <td data-key="52" onclick="number('4')">4</td>
-          <td data-key="53" onclick="number('5')">5</td>
-          <td data-key="54" onclick="number('6')">6</td>
-          <td data-key="189" onclick="symbol('-')" class="operation-icon">-</td>
+          <td data-key="52" onclick="number('4'), playNumberAudio()">4</td>
+          <td data-key="53" onclick="number('5'), playNumberAudio()">5</td>
+          <td data-key="54" onclick="number('6'), playNumberAudio()">6</td>
+          <td data-key="189" onclick="symbol('-'), playOtherAudio()" class="operation-icon">-</td>
         </tr>
         <tr class="items">
-          <td data-key="49" onclick="number('1')">1</td>
-          <td data-key="50" onclick="number('2')">2</td>
-          <td data-key="51" onclick="number('3')">3</td>
-          <td data-key="187" onclick="symbol('+')" class="operation-icon">+</td>
+          <td data-key="49" onclick="number('1'), playNumberAudio()">1</td>
+          <td data-key="50" onclick="number('2'), playNumberAudio()">2</td>
+          <td data-key="51" onclick="number('3'), playNumberAudio()">3</td>
+          <td data-key="187" onclick="symbol('+'), playOtherAudio()" class="operation-icon">+</td>
         </tr>
         <tr class="items">
-          <td data-key="48" onclick="number('0')">0</td>
-          <td onclick="doubleZero('00')">00</td>
-          <td data-key="190" onclick="Point('.')">.</td>
-          <td data-key="13" onclick="equal()" class="operation-icon">=</td>
+          <td data-key="48" onclick="number('0'), playNumberAudio()">0</td>
+          <td onclick="doubleZero('00'), playNumberAudio()">00</td>
+          <td data-key="190" onclick="Point('.'), playNumberAudio()">.</td>
+          <td data-key="13" onclick="equal(), playOtherAudio()" class="operation-icon">=</td>
         </tr>
       </table>
     </div>
+    <audio id="audio1" src="./audio/audio1.mp3"></audio>
+    <audio id="audio2" src="./audio/audio2.mp3"></audio>
   </div>
 </body>
 <script src="./main.js"></script>
