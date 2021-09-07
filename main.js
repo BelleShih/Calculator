@@ -5,6 +5,8 @@ let input = document.getElementById('input');
 let account = false;
 let disable = false;
 let inputText = '';
+let audio1 = document.getElementById('audio1');
+let audio2 = document.getElementById('audio2');
 
 let number = (item) => {
   if(input.innerText.length > 9) {
@@ -104,50 +106,67 @@ window.addEventListener('keydown', function(e){
 
   if(e.keyCode === 48) {
     number(key.innerHTML);
+    audio1.cloneNode().play();
   } else if(e.keyCode === 49) {
     number(key.innerHTML);
+    audio1.cloneNode().play();
   } else if(e.keyCode === 50) {
     number(key.innerHTML);
+    audio1.cloneNode().play();
   } else if(e.keyCode === 51) {
     number(key.innerHTML);
+    audio1.cloneNode().play();
   } else if(e.keyCode === 52) {
     number(key.innerHTML);
+    audio1.cloneNode().play();
   } else if(e.keyCode === 53) {
     number(key.innerHTML);
+    audio1.cloneNode().play();
   } else if(e.keyCode === 54) {
     number(key.innerHTML);
+    audio1.cloneNode().play();
   } else if(e.keyCode === 55) {
     number(key.innerHTML);
+    audio1.cloneNode().play();
   } else if(e.keyCode === 56) {
     number(key.innerHTML);
+    audio1.cloneNode().play();
   } else if(e.keyCode === 57) {
     number(key.innerHTML);
+    audio1.cloneNode().play();
   } else if(e.keyCode === 191) {
     symbol(key.innerHTML);
+    audio2.cloneNode().play();
   } else if(e.keyCode === 106) {
     symbol(key.innerHTML);
+    audio2.cloneNode().play();
   } else if(e.keyCode === 189) {
     symbol(key.innerHTML);
+    audio2.cloneNode().play();
   } else if(e.keyCode === 187) {
     symbol(key.innerHTML);
+    audio2.cloneNode().play();
   } else if(e.keyCode === 88) {
     symbol(key.innerHTML);
+    audio2.cloneNode().play();
   } else if(e.keyCode === 8) {
     del();
+    audio2.cloneNode().play();
   } else if(e.keyCode === 190) {
     Point(key.innerHTML);
+    audio2.cloneNode().play();
   } else if(e.keyCode === 13) {
     equal();
+    audio2.cloneNode().play();
   } else if(e.keyCode === 27) {
     ac();
+    audio2.cloneNode().play();
   }
 });
 
 let playNumberAudio = () => {
-  let audio = document.getElementById('audio1');
-  audio.cloneNode().play();
+  audio1.cloneNode().play();
 };
 let playOtherAudio = () => {
-  let audio = document.getElementById('audio2');
-  audio.cloneNode().play();
+  audio2.cloneNode().play();
 };
